@@ -71,6 +71,8 @@
 // export default ImageSlider;
 
 import { useState } from "react";
+import {Button} from "./ui/button.jsx";
+import {Link} from "react-router-dom";
 
 export default function ImageSlider({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -97,6 +99,20 @@ export default function ImageSlider({ images }) {
       />
       
       {/* Slider Controls */}
+      <div className="absolute top-10 left-10">
+        <Link to="/">
+          <Button variant="outline">
+            Kembali
+          </Button>
+        </Link>
+      </div>
+      <div className="absolute top-10 right-10">
+        <Link to="/questions">
+          <Button variant="outline">
+            Ambil quiz
+          </Button>
+        </Link>
+      </div>
       <div className="absolute bottom-0 w-full bg-black bg-opacity-50 p-4 flex items-center justify-between">
         <button
           onClick={handlePrevious}
