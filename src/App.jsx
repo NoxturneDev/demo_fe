@@ -5,8 +5,8 @@ import Topics from "./components/pages/Topics.jsx";
 
 const router = createBrowserRouter([
   { path: "/", element: <Dashboard /> },
-  { path: "/topics", element: <Topics /> },
-  { path: "/questions", element: <QuestionsPage /> },
+  { path: "/topics/:slide", element: <Topics /> },
+  { path: "/questions/:slide", element: <QuestionsPage /> },
 ]);
 
 function App() {

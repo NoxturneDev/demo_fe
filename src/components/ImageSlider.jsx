@@ -72,10 +72,11 @@
 
 import { useState } from "react";
 import {Button} from "./ui/button.jsx";
-import {Link} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 
 export default function ImageSlider({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const params = useParams()
   
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
@@ -107,7 +108,7 @@ export default function ImageSlider({ images }) {
         </Link>
       </div>
       <div className="absolute top-10 right-10">
-        <Link to="/questions">
+        <Link to={`/questions/${params.slide}`}>
           <Button variant="outline">
             Ambil quiz
           </Button>
