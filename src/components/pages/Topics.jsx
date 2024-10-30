@@ -13,6 +13,7 @@ import image24 from '../../assets/slide-2-4.png';
 import image25 from '../../assets/slide-2-5.png';
 
 import {useEffect, useState} from "react";
+import VideoPlayer from "../VideoPlayer.jsx";
 
 const slide1Images = [image1, image2, image3];
 const slide2Images = [image21, image22, image23, image24, image25];
@@ -35,9 +36,13 @@ const Topics = () => {
   }, []);
   
   return (
-    <>
-      <ImageSlider images={imagesUrl} />
-    </>
+    <div className="min-h-screen">
+      {params?.slide === 'video-1' ? (
+        <VideoPlayer videoId="AKW3Zen8DD4" />
+      ) : (
+        <ImageSlider images={imagesUrl} />
+      )}
+    </div>
   );
 };
 

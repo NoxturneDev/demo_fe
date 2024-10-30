@@ -124,7 +124,7 @@ export default function QuestionsPage() {
     // Load question set based on params
     const selectedSet = params.slide || "slide-1"; // Default to "set-1" if no param is provided
     setQuestionSet(questionSets[selectedSet] || []);
-  }, [params.set]);
+  }, [params.slide]);
   
   const closeScoreDialogAndBack = () => {
     setIsModalOpen(false);
