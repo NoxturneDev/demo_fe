@@ -3,6 +3,8 @@ import {Card, CardHeader, CardTitle, CardContent} from "@/components/ui/card";
 import image1 from '../../assets/slide-1-1.png';
 import {Link, useNavigate} from "react-router-dom";
 import {Button} from "../ui/button.jsx";
+import Faq from "../Faq.jsx";
+import Footer from "../Footer.jsx";
 
 const Dashboard = ({title}) => {
   const navigate = useNavigate();
@@ -12,17 +14,17 @@ const Dashboard = ({title}) => {
   };
   
   return (
-    <div className="flex flex-col justify-center items-center p-6 bg-gray-100 min-h-screen">
+    <div className="flex flex-col justify-center items-center bg-blue-100 gap-10 pt-10 min-h-screen">
       {/* Header Section */}
-      <header className="text-center mb-10">
+      <header className="text-center mb-10 mt-20">
         <h1 className="text-4xl font-bold text-blue-600">Selamat datang di PIBA!</h1>
         <p className="text-xl text-gray-700 mt-2">
-          Mempelajari ilmu pengetahuan alam dengan mudah dan menyenangkan
+          Aplikasi digital Pembelajaran Interaktif Berbasis Aplikatif, tentang kesehatan Dan senam Rhythmic Auditory Stimulation (RAS)
         </p>
       </header>
       
       {/* Cards Section */}
-      <div className="flex justify-center items-center gap-6">
+      <div className="flex justify-center items-center gap-6 mb-20">
         <Card
           className="hover:cursor-pointer hover:bg-gray-200 transition ease-in-out duration-200 p-4 rounded-lg shadow-lg border border-gray-300"
         >
@@ -78,12 +80,32 @@ const Dashboard = ({title}) => {
             </CardTitle>
           </CardHeader>
           <CardContent className="text-center">
-            <p className="text-gray-600">Pelajari tentang senam RAS</p>
-            <Button
-              className="my-2 bg-blue-500 hover:bg-blue-600 text-white"
-            >
-              Mulai Belajar
-            </Button>
+            <div className="flex flex-col justify-center items-center">
+              <p className="text-gray-600">Pelajari tentang senam RAS</p>
+              <div className="flex gap-4 justify-center items-center">
+                <Link to="/topics/slide-2">
+                  <Button
+                    className="my-2 bg-blue-500 hover:bg-blue-600 text-white"
+                  >
+                    Mulai Belajar
+                  </Button>
+                </Link>
+                <Link to="/questions/slide-2">
+                  <Button
+                    className="my-2 bg-blue-500 hover:bg-blue-600 text-white"
+                  >
+                    Ambil Pretest
+                  </Button>
+                </Link>
+                <Link to="/questions/slide-2">
+                  <Button
+                    className="my-2 bg-blue-500 hover:bg-blue-600 text-white"
+                  >
+                    Ambil Post test
+                  </Button>
+                </Link>
+              </div>
+            </div>
           </CardContent>
         </Card>
         <Card
@@ -100,7 +122,7 @@ const Dashboard = ({title}) => {
             </CardTitle>
           </CardHeader>
           <CardContent className="text-center">
-            <p className="text-gray-600">Pelajari tentang senam RAS</p>
+            <p className="text-gray-600">Pelajari tentang sistem pernapasan manusia</p>
             <Button
               className="my-2 bg-blue-500 hover:bg-blue-600 text-white"
             >
@@ -109,6 +131,8 @@ const Dashboard = ({title}) => {
           </CardContent>
         </Card>
       </div>
+      <Faq />
+      <Footer />
     </div>
   );
 };
