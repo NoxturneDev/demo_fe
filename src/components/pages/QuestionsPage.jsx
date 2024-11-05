@@ -3,6 +3,7 @@ import {Link, useNavigate, useParams} from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import Questions from "../Questions";
+import axios from "axios";
 
 export default function QuestionsPage() {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ export default function QuestionsPage() {
   const [percentage, setPercentage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [questionSet, setQuestionSet] = useState([]);
+  const [isPretest, setIsPretest] = useState(true);
   const params = useParams();
   
   // Structured data for question sets
@@ -133,7 +135,7 @@ export default function QuestionsPage() {
     navigate("/");
   };
   
-  const handleSubmitForm = (e) => {
+  const handleSubmitForm = async (e) => {
     e.preventDefault();
     
     let correctCount = 0;
@@ -147,10 +149,42 @@ export default function QuestionsPage() {
     });
     
     const scorePercentage = ((correctCount / totalQuestions) * 100).toFixed(2);
+    const score = `${correctCount}/${totalQuestions}`;
     setScore(`${correctCount}/${totalQuestions}`);
     setPercentage(`${scorePercentage}%`);
-    setIsModalOpen(true); // Open the modal to show results
+  //   save to session storage
+    sessionStorage.setItem('score', score.toString());
+    sessionStorage.setItem('percentage', scorePercentage.toString());
+    
+    try {
+      const payload = {
+        name: sessionStorage.getItem('name'),
+        class_room: sessionStorage.getItem('classroom'),
+        score: score,
+        percentage: parseInt(scorePercentage),
+        is_pretest: isPretest,
+        is_posttest: !isPretest,
+      }
+      console.log(payload);
+      const resp = await axios.post("http://localhost:3000/api/history", {...payload})
+      
+      sessionStorage.setItem("isPretest", "0");
+    } catch (error) {
+      console.error("Error while saving score to session storage", error);
+    } finally {
+      setIsModalOpen(true);
+    }
   };
+  
+  const checkSessionStorageAvailability = () => {
+    const isPretest = sessionStorage.getItem('isPretest');
+    
+    setIsPretest(isPretest === "1")
+  }
+  
+  useEffect(() => {
+    checkSessionStorageAvailability();
+  }, []);
   
   return (
     <div className="p-5">
