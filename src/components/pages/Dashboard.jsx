@@ -29,7 +29,9 @@ const Dashboard = ({title}) => {
   
   useEffect(() => {
     const isPretest = sessionStorage.getItem("isPretest");
-    if (isPretest === null) {
+    const name = sessionStorage.getItem("name");
+    const classRoom =  sessionStorage.getItem("classroom");
+    if (isPretest === null || name === null || classRoom === null) {
       sessionStorage.setItem("isPretest", "1"); // default value
       setIsModalOpen(true)
     }
