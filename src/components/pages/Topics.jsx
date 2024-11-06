@@ -38,7 +38,7 @@ const Topics = () => {
   return (
     <div className="min-h-screen">
       {params?.slide === 'video-1' ? (
-        <VideoPlayer videoId="AKW3Zen8DD4" />
+        <VideoPlayer videoId="0A1b2AlPHUs" />
       ) : (
         <ImageSlider images={imagesUrl} />
       )}
