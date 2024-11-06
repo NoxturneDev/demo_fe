@@ -15,7 +15,7 @@ export default function Faq() {
 ];
   
   return (
-    <div className="bg-blue-300 w-full">
+    <div className="bg-blue-500 w-full">
       <Accordion type="single" collapsible className="w-full px-12 py-12 z-50">
         {faq.map((item) => (
           <FaqItem key={item.id} value={item.id} question={item.q} answer={item.ans}/>

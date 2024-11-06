@@ -47,9 +47,9 @@ const HistoryTable = () => {
             <td className="py-2 px-4 border-b">{item.percentage}%</td>
             <td className="py-2 px-4 border-b">
               {item.is_pretest  ? (
-                <span className="px-2 py-1 bg-blue-200 text-blue-800 rounded">Pretest</span>
-              ) : item.isPostest ? (
-                <span className="px-2 py-1 bg-green-200 text-green-800 rounded">Posttest</span>
+                <span className="px-2 py-1 bg-blue-200 text-blue-800 rounded">Pre Test</span>
+              ) : item.is_posttest ? (
+                <span className="px-2 py-1 bg-green-200 text-green-800 rounded">Post Test</span>
               ) : (
                 <span className="px-2 py-1 bg-gray-200 text-gray-800 rounded">N/A</span>
               )}

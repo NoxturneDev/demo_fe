@@ -7,7 +7,7 @@ import HistoryScore from "./components/pages/HistoryScore.jsx";
 const router = createBrowserRouter([
   { path: "/", element: <Dashboard /> },
   { path: "/topics/:slide", element: <Topics /> },
-  { path: "/questions/:slide", element: <QuestionsPage /> },
+  { path: "/questions", element: <QuestionsPage /> },
   { path: "/history", element: <HistoryScore /> },
 ]);
 

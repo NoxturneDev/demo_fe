@@ -1,12 +1,14 @@
 // src/components/pages/Dashboard.jsx
 import {Card, CardHeader, CardTitle, CardContent} from "@/components/ui/card";
 import image1 from '../../assets/slide-1-1.png';
+import poster1 from '../../assets/poster_1.png';
 import {Link, useNavigate} from "react-router-dom";
 import {Button} from "../ui/button.jsx";
 import Faq from "../Faq.jsx";
 import Footer from "../Footer.jsx";
 import {Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle} from "../ui/dialog.jsx";
 import {useEffect, useState} from "react";
+import Cards from "../Cards.jsx";
 
 const Dashboard = ({title}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,11 +16,6 @@ const Dashboard = ({title}) => {
     name: null,
     class_room: null
   });
-  const navigate = useNavigate();
-  
-  const handleCardClick = (slide) => {
-    navigate(`/topics/${slide}`);
-  };
   
   const handleNameInput = (name) => {
     console.log(student)
@@ -50,7 +47,8 @@ const Dashboard = ({title}) => {
           </p>
         </header>
         
-        {/* Cards Section */}
+        <Cards />
+        
         <div className="flex justify-center items-center gap-6 mb-20">
           <Card
             className="hover:cursor-pointer hover:bg-gray-200 transition ease-in-out duration-200 p-4 rounded-lg shadow-lg border border-gray-300"
@@ -61,88 +59,33 @@ const Dashboard = ({title}) => {
                 <img src={image1} alt="Character" className="w-full h-full rounded-full"/>
               </div>
               <CardTitle className="text-center text-xl font-semibold text-blue-600">
-                Pengenalan Tubuh Manusia
+                Quiz
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
               <div className="flex flex-col justify-center items-center">
                 <p className="text-gray-600">Pelajari tentang dasar-dasar organ reproduksi manusia</p>
                 <div className="flex gap-4 justify-center items-center">
-                  <Link to="/topics/slide-1">
+                  <Link to="/questions">
                     <Button
                       className="my-2 bg-blue-500 hover:bg-blue-600 text-white"
                     >
-                      Mulai Belajar
-                    </Button>
-                  </Link>
-                  <Link to="/questions/slide-1">
-                    <Button
-                      className="my-2 bg-blue-500 hover:bg-blue-600 text-white"
-                    >
-                      Ambil Quiz
+                      Mulai Quiz
                     </Button>
                   </Link>
                 </div>
               </div>
             </CardContent>
           </Card>
-          <Card
-            className="hover:cursor-pointer hover:bg-gray-200 transition ease-in-out duration-200 p-4 rounded-lg shadow-lg border border-gray-300"
-            onClick={() => handleCardClick('slide-2')}
-          >
-            <CardHeader className="flex justify-center items-center">
-              {/* Circle Image Placeholder */}
-              <div className="w-24 h-24 bg-gray-300 rounded-full mb-4 flex items-center justify-center">
-                <img src={image1} alt="Character" className="w-full h-full rounded-full"/>
-              </div>
-              <CardTitle className="text-center text-xl font-semibold text-blue-600">
-                Pengenalan Senam RAS
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <div className="flex flex-col justify-center items-center">
-                <p className="text-gray-600">Pelajari tentang senam RAS</p>
-                <div className="flex gap-4 justify-center items-center">
-                  <Link to="/topics/slide-2">
-                    <Button
-                      className="my-2 bg-blue-500 hover:bg-blue-600 text-white"
-                    >
-                      Mulai Belajar
-                    </Button>
-                  </Link>
-                  <Link to="/questions/slide-2">
-                    <Button
-                      className="my-2 bg-blue-500 hover:bg-blue-600 text-white"
-                    >
-                      Quiz
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          <Card
-            className="hover:cursor-pointer hover:bg-gray-200 transition ease-in-out duration-200 p-4 rounded-lg shadow-lg border border-gray-300"
-            onClick={() => handleCardClick('video-1')}
-          >
-            <CardHeader className="flex justify-center items-center">
-              {/* Circle Image Placeholder */}
-              <div className="w-24 h-24 bg-gray-300 rounded-full mb-4 flex items-center justify-center">
-                <img src={image1} alt="Character" className="w-full h-full rounded-full"/>
-              </div>
-              <CardTitle className="text-center text-xl font-semibold text-blue-600">
-                Pernapasan Manusia
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-gray-600">Pelajari tentang sistem pernapasan manusia</p>
-              <Button
-                className="my-2 bg-blue-500 hover:bg-blue-600 text-white"
-              >
-                Tonton Video
-              </Button>
-            </CardContent>
-          </Card>
+        </div>
+        <div className="flex flex-col items-center py-10 px-4 bg-gray-100">
+          <div className="w-full max-w-3xl p-4 bg-white rounded-lg shadow-lg">
+            <img
+              src={poster1}
+              alt="Image Poster"
+              className="w-full h-auto rounded-md object-cover"
+            />
+          </div>
         </div>
         <Faq/>
         <Footer/>

@@ -108,7 +108,7 @@ export default function ImageSlider({ images }) {
         </Link>
       </div>
       <div className="absolute top-10 right-10">
-        <Link to={`/questions/${params.slide}`}>
+        <Link to={`/questions`}>
           <Button variant="outline">
             Ambil quiz
           </Button>

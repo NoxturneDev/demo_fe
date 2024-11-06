@@ -14,7 +14,7 @@ function Footer() {
   return (
     <footer className="bg-blue-500 font-poppins text-white px-7 py-16 lg:px-20 w-full">
       <div className="flex flex-col md:flex-row items-center">
-        <div className="mt-10 flex w-full md:w-1/2 justify-between">
+        <div className="flex w-full md:w-1/2 justify-between">
           <div className="w-1/2">
             <h1 className="text-2xl font-semibold mb-4">Social Media</h1>
             <div className="flex justify-start items-center gap-4">
