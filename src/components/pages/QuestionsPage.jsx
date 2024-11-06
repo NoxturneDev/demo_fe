@@ -156,7 +156,7 @@ export default function QuestionsPage() {
         is_posttest: !isPretest,
       }
       console.log(payload);
-      const resp = await axios.post("http://localhost:3000/api/history", {...payload})
+      const resp = await axios.post("https://api.physio-piba.com/api/history", {...payload})
       
       sessionStorage.setItem("isPretest", "0");
     } catch (error) {

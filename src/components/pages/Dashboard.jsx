@@ -73,6 +73,13 @@ const Dashboard = ({title}) => {
                       Mulai Quiz
                     </Button>
                   </Link>
+                  <Link to="/history">
+                    <Button
+                      className="my-2 bg-blue-500 hover:bg-blue-600 text-white"
+                    >
+                      Lihat hasil
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </CardContent>

@@ -10,7 +10,7 @@ const HistoryTable = () => {
     // Fetch data from the API
     const fetchHistory = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/history");
+        const response = await axios.get("https://api.physio-piba.com/api/history");
         setHistoryData(response.data.data);
       } catch (err) {
         setError("Failed to fetch history data.");
